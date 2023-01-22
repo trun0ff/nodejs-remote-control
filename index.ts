@@ -3,7 +3,7 @@ import {WebSocket, WebSocketServer} from 'ws';
 import {Readable, Writable} from "stream";
 import {__handleAction} from "./src/controller";
 
-const HTTP_PORT = 3000;
+const HTTP_PORT = process.env.HTTP_PORT ?? 3000;
 const WEB_SOCKET_PORT =  process.env.WEBSOCKET_PORT ?? 8080;
 
 console.log(`Start static http server on the ${HTTP_PORT} port!`);

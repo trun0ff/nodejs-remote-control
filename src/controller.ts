@@ -1,5 +1,5 @@
 import {down, left, right, up} from "./mouse";
-import * as robot from "robotjs";
+import { mouse } from "@nut-tree/nut-js";
 import {Readable} from "stream";
 import {circle, rectangle, square} from "./draw";
 import {getScreen} from "./screen";
@@ -24,33 +24,33 @@ const __handleAction = async (request: Buffer, readableWsStream:Readable) => {
 
     switch (action) {
         case MOUSE_UP_ACTION:
-            up(value);
+            await up(value);
             readableWsStream.push(action);
             break;
         case MOUSE_DOWN_ACTION:
-            down(value);
+            await down(value);
             readableWsStream.push(action);
             break;
         case MOUSE_LEFT_ACTION:
-            left(value);
+            await left(value);
             readableWsStream.push(action);
             break;
         case MOUSE_RIGHT_ACTION:
-            right(value);
+            await right(value);
             readableWsStream.push(action);
             break;
         case MOUSE_POSITION_ACTION:
-            let { x, y } = robot.getMousePos();
+            let { x, y } = await mouse.getPosition();
             readableWsStream.push(`mouse_position {${x},${y}}`);
             break;
         case DRAW_CIRCLE_ACTION:
-            circle(value);
+            await circle(value);
             break;
         case DRAW_RECTANGLE_ACTION:
-            rectangle(value, value2);
+            await rectangle(value, value2);
             break;
         case DRAW_SQUARE_ACTION:
-            square(value);
+            await square(value);
             break;
         case PRINT_SCREEN_ACTION:
             let image = await getScreen();
