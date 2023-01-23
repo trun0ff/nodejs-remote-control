@@ -1,0 +1,48 @@
+{
+    "name": "ws_task",
+    "version": "1.0.0",
+    "description": "Template for the WebSocket remote control task",
+    "main": "index.ts",
+    "type": "commonjs",
+    "scripts": {
+        "start": "ts-node ./index.ts",
+        "start:dev": "nodemon ./index.ts",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "license": "ISC",
+    "nodemonConfig": {
+        "watch": [
+            "src"
+        ],
+        "ext": "ts,json",
+        "ignore": [
+            "src/**/*.spec.ts"
+        ],
+        "exec": "ts-node-esm ./src/index.ts"
+    },
+    "devDependencies": {
+        "@types/ws": "^8.5.3",
+        "nodemon": "^2.0.16",
+        "dotenv": "^16.0.1"
+    },
+    "dependencies": {
+        "@types/jest": "^29.2.5",
+        "@types/node": "^18.11.18",
+        "@types/supertest": "^2.0.12",
+        "@typescript-eslint/eslint-plugin": "^5.47.1",
+        "@typescript-eslint/parser": "^5.47.1",
+        "@types/ws": "^8.5.3",
+        "dotenv": "^16.0.3",
+        "eslint": "^8.31.0",
+        "jest": "^29.3.1",
+        "nodemon": "^2.0.20",
+        "supertest": "^6.3.3",
+        "ts-jest": "^29.0.5",
+        "ts-node": "^10.9.1",
+        "typescript": "^4.9.4",
+        "jimp": "^0.16.1",
+        "@nut-tree/nut-js": "^2.3.0",
+        "ws": "^8.8.0"
+    }
+}
